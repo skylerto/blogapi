@@ -4,8 +4,8 @@
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
     <bean id="postBean" class="me.skylerlayne.dev.bean.PostBean">
-        <property name="title"/>
-        <property name="content"/>
+        <property name="title" value="Post Title"/>
+        <property name="content" value="Post Content"/>
     </bean>
 
 </beans>
