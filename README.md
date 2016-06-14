@@ -4,7 +4,7 @@ Blog API
 This is an example of creating a web API with the [Spring
 Framework](http://spring.io).
 
-## Usage
+## Installation
 
 Clone it, package it, run it, test it.
 
@@ -16,6 +16,24 @@ $ curl http://localhost:8080/test
 ```
 
 If you get a response, it's all good.
+
+## Usage
+
+To add a new post, with post body (title, content):
+```
+POST /blog/posts/new
+```
+
+To get all of the posts:
+```
+GET /blog/posts
+```
+
+To get a specific post:
+```
+GET /blog/posts/:id
+GET /blog/posts/:title
+```
 
 ## License
 
