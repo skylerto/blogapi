@@ -5,17 +5,14 @@ import me.skylerlayne.dev.bean.PostBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * This class represents the main controller for the API.
  * <p>
  * Created by Skyler Layne © 2016
  */
-@Controller
+@RestController
 public class MainController {
 
 
