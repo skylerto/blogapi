@@ -32,4 +32,15 @@ public class PostBean {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        s.append("{ \"title\":");
+        s.append("\"" + this.title + "\",");
+        s.append(" \"content\":");
+        s.append("\"" + this.content + "\"");
+        s.append("}");
+
+        return s.toString();
+    }
 }
