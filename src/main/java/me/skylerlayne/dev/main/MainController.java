@@ -44,20 +44,50 @@ public class MainController {
 
     ArrayList<PostBean> posts = new ArrayList<>();
 
+    /**
+     * GET /blog/posts
+     *
+     * @return
+     */
     @RequestMapping(method = RequestMethod.GET, value = "/blog/posts")
-    public
-    @ResponseBody
-    ArrayList<PostBean> getPosts() {
+    public @ResponseBody ArrayList<PostBean> getPosts() {
         return posts;
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/blog/posts/new")
-    public
-    @ResponseBody
+    /**
+     * POST /blog/posts/new
+     *
+     * @param title
+     * @param content
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.POST, value = "/blog/posts")
+    public @ResponseBody
     PostBean newPost(@RequestParam(value = "title", required = false, defaultValue = "Default Title") String title, @RequestParam(value = "content", required = false, defaultValue = "Default Content") String content) {
         PostBean post = new PostBean(title, content);
         posts.add(post);
         return post;
+    }
+
+    /**
+     * GET /blog/posts/{id}
+     *
+     * @param id
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.GET,  value = "/blog/posts/{id}")
+    public @ResponseBody
+    ArrayList<PostBean>  getPostById(@PathVariable(value="id") String id) {
+        ArrayList<PostBean> ps = new ArrayList<>();
+
+        try {
+            int index = Integer.parseInt(id);
+            ps.add(posts.get(index));
+        } catch (NumberFormatException | IndexOutOfBoundsException e) {
+            // log exception
+            System.out.println(e.getMessage());
+        }
+        return ps;
     }
 }
 

@@ -21,7 +21,7 @@ If you get a response, it's all good.
 
 To add a new post, with post body (title, content):
 ```
-POST /blog/posts/new
+POST /blog/posts
 ```
 
 To get all of the posts:
@@ -32,7 +32,6 @@ GET /blog/posts
 To get a specific post:
 ```
 GET /blog/posts/:id
-GET /blog/posts/:title
 ```
 
 ## License
