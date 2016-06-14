@@ -3,3 +3,4 @@ target/
 BlogApi.iml
 /**/node_modules/
 /**/typings/
+/**/npm-debug.log
