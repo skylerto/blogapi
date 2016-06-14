@@ -38,7 +38,7 @@ public class PostBean {
         s.append("{ \"title\":");
         s.append("\"" + this.title + "\",");
         s.append(" \"content\":");
-        s.append("\"" + this.content + "\"");
+        s.append("\"" + this.content + "\" ");
         s.append("}");
 
         return s.toString();

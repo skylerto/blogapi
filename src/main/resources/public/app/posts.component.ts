@@ -12,7 +12,7 @@ import {Observable} from 'rxjs/Rx';
       <div class="posts">
         <div *ngFor="let post of posts">
           <h2>{{ post.title }}</h2>
-          <p>{{ post.content }}</p>
+          <div [innerHtml]="post.content"></div>
         </div>
       </div>
     `

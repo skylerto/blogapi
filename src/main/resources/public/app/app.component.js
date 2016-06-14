@@ -11,6 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var http_2 = require('@angular/http');
+var router_deprecated_1 = require('@angular/router-deprecated');
+var posts_component_1 = require('./posts.component');
 var AppComponent = (function () {
     function AppComponent(http) {
         this.http = http;
@@ -19,10 +21,16 @@ var AppComponent = (function () {
     }
     AppComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
+            // selector: 'my-app',
             providers: [http_1.HTTP_PROVIDERS],
+            directives: [router_deprecated_1.RouterLink],
             template: '<h1>Hello, {{ firstName + lastName }}</h1>'
-        }), 
+        }),
+        router_deprecated_1.RouteConfig([
+            { path: '/', name: 'Home', component: AppComponent },
+            { path: '/posts', name: 'Posts', component: posts_component_1.Posts },
+            { path: '/posts/:id', name: 'PostsDetail', component: posts_component_1.Posts }
+        ]), 
         __metadata('design:paramtypes', [http_2.Http])
     ], AppComponent);
     return AppComponent;

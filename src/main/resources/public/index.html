@@ -8,7 +8,8 @@
 
     <!-- 1. Load libraries -->
      <!-- Polyfill(s) for older browsers -->
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="node_modules/core-js/client/shim.min.js"></script>
     <script src="node_modules/zone.js/dist/zone.js"></script>
@@ -23,8 +24,18 @@
   </head>
   <!-- 3. Display the application -->
   <body>
-    <my-app>Loading...</my-app>
-    <posts>Loading...</posts>
+    <base href="/">
+
+    <navbar></navbar>
+
+    <div class="container">
+      <router-outlet></router-outlet>
+      <!-- <my-app>Loading...</my-app> -->
+    </div>
+
+    <!-- <div class="container"> -->
+    <!--   <posts>Loading...</posts> -->
+    <!-- </div> -->
   </body>
 </html>
 

@@ -32,7 +32,7 @@ var Posts = (function () {
         core_1.Component({
             selector: 'posts',
             providers: [http_1.HTTP_PROVIDERS],
-            template: "\n      <h1>{{ title }}</h1>\n      <div class=\"posts\">\n        <div *ngFor=\"let post of posts\">\n          <h2>{{ post.title }}</h2>\n          <p>{{ post.content }}</p>\n        </div>\n      </div>\n    "
+            template: "\n      <h1>{{ title }}</h1>\n      <div class=\"posts\">\n        <div *ngFor=\"let post of posts\">\n          <h2>{{ post.title }}</h2>\n          <div [innerHtml]=\"post.content\"></div>\n        </div>\n      </div>\n    "
         }), 
         __metadata('design:paramtypes', [http_2.Http])
     ], Posts);
