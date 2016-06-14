@@ -15,6 +15,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class MainController {
 
+    @RequestMapping(method= RequestMethod.GET, value="/test")
+    public @ResponseBody
+    Test getTest() {
+        return new Test("BlogAPI", "This is a blog API written in Spring!");
+    }
+
 
 
     @RequestMapping(method= RequestMethod.GET, value="/test-route")
@@ -30,5 +36,31 @@ public class MainController {
         System.out.print(obj.getTitle() + ": " + obj.getContent());
 
         return new PostBean(title, content);
+    }
+}
+
+class Test {
+    private String name;
+    private String content;
+
+    public Test(String name, String content) {
+        this.name = name;
+        this.content = content;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }
