@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http'
 import { Http, Response } from '@angular/http'
-import {Observable} from 'rxjs/Rx';
+import { PostService } from './shared/post.service'
+import { Post } from './shared/post.model'
 
 
 @Component({
-    selector: 'posts',
+    selector: 'posts-component',
     providers: [HTTP_PROVIDERS],
     template: `
       <h1>{{ title }}</h1>
@@ -17,14 +18,15 @@ import {Observable} from 'rxjs/Rx';
       </div>
     `
 })
-export class Posts {
+export class PostsComponent {
 
   private title: string;
-  public posts;
+  private posts: Post[];
+  errorMessage: string;
 
-  constructor(private http:Http) {
+  constructor(private postService:PostService) {
     this.title = 'Posts';
-    this.posts = new Array();
+    this.posts = [];
   }
 
   ngOnInit() {
@@ -32,12 +34,15 @@ export class Posts {
   }
 
   getPosts() {
-    this.http.get('/blog/posts').subscribe(res => {
-      res = res.json()
-      console.log(res);
-      this.posts = res;
-    },
-      err => console.error(err),
-      () => console.log('done'))
+    this.postService.getPosts()
+                    .subscribe(
+                      res => {
+                        this.posts = res.json()
+                      },
+                      error => {
+                        this.errorMessage = <any>error
+                      });
   }
+
+
 }

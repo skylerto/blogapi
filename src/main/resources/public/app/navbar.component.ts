@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { Http } from '@angular/http';
 import {ROUTER_DIRECTIVES, Router, Routes} from "@angular/router";
-import { Posts } from './posts.component';
 
 
 @Component({
@@ -35,12 +34,7 @@ import { Posts } from './posts.component';
     </nav>
   `
 })
-@Routes([
-  {path: '/', component: AppComponent},
-  {path: '/posts', component: Posts},
-  {path: '/posts/:id', component: Posts}
-])
-export class AppComponent { 
+export class NavbarComponent { 
 
   public firstName : string
   public lastName : string
