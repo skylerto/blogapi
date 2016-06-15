@@ -17,7 +17,7 @@ import {Observable} from 'rxjs/Rx';
       </div>
     `
 })
-export class Posts { 
+export class Posts {
 
   private title: string;
   public posts;

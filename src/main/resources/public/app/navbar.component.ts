@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
-import { RouteConfig, ROUTER_DIRECTIVES, RouterLink } from '@angular/router-deprecated';
+import { HTTP_PROVIDERS } from '@angular/http';
+import { Http } from '@angular/http';
+import {ROUTER_DIRECTIVES, Router, Routes} from "@angular/router";
+import { Posts } from './posts.component';
+
 
 @Component({
-  selector: 'navbar',
-  directives: [RouterLink],
-  template:`
+    selector: 'my-app',
+    providers: [HTTP_PROVIDERS],
+    directives: [ROUTER_DIRECTIVES],
+   template:`
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -15,28 +20,33 @@ import { RouteConfig, ROUTER_DIRECTIVES, RouterLink } from '@angular/router-depr
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">{{ title }}</a>
+          <a class="navbar-brand" href="#">Blog API</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a [routerLink]="['Home']">Home</a></li>
-            <li><a [routerLink]="['Posts']">Blog</a></li>
-            <li><a [routerLink]="['Login']">Login</a></li>
+            <li><a [routerLink]="['/']">Home</a></li>
+            <li><a [routerLink]="['/posts']">Blog</a></li>
+            <li><a [routerLink]="['/posts']">Login</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
   `
-
 })
+@Routes([
+  {path: '/', component: AppComponent},
+  {path: '/posts', component: Posts},
+  {path: '/posts/:id', component: Posts}
+])
+export class AppComponent { 
 
-export class Navbar {
-  private title: string;
+  public firstName : string
+  public lastName : string
 
   constructor() {
-    this.title = 'Blog API';
+    this.firstName = 'Skyler'
+    this.lastName = 'Layne'
   }
-
 }
