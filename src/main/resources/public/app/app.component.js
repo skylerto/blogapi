@@ -21,7 +21,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'blog-app',
-            template: "\n    <a [routerLink]=\"['/']\">Home</a>\n    <a [routerLink]=\"['/posts']\">Blog</a>\n    <div class=\"outer-outlet\">\n      <router-outlet></router-outlet>\n    </div>\n  ",
+            templateUrl: './app/app.component.html',
             directives: [router_1.ROUTER_DIRECTIVES, posts_component_1.PostsComponent],
             providers: [post_service_1.PostService]
         }),

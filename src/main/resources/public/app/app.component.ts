@@ -11,13 +11,7 @@ import { HomeComponent } from './home.component'
 
 @Component({
   selector: 'blog-app',
-  template: `
-    <a [routerLink]="['/']">Home</a>
-    <a [routerLink]="['/posts']">Blog</a>
-    <div class="outer-outlet">
-      <router-outlet></router-outlet>
-    </div>
-  `,
+  templateUrl: './app/app.component.html',
   directives: [ROUTER_DIRECTIVES, PostsComponent],
   providers: [PostService]
 })
